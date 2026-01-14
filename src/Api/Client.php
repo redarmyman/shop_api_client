@@ -37,29 +37,29 @@ class Client
      {
          [$url, $method, $headers, $body] = $this->prepareRequestMessage($request);
 
-	 $requestFactory = Psr17FactoryDiscovery::findRequestFactory()->createRequest($method, $url);
-	 if ($body instanceof StreamInterface)
-	 {
+         $requestFactory = Psr17FactoryDiscovery::findRequestFactory()->createRequest($method, $url);
+         if ($body instanceof StreamInterface)
+         {
               $requestFactory = $requestFactory->withBody($body);
          }
-	 foreach ($headers as $name => $value) {
+         foreach ($headers as $name => $value) {
               $requestFactory = $requestFactory->withHeader($name, $value);
-	 }
+         }
 
          $psr7Response = $this->httpClient->sendRequest($requestFactory);
 
-	 $responseHeaders = [];
-	 foreach ($psr7Response->getHeaders() as $name => $value) {
+         $responseHeaders = [];
+         foreach ($psr7Response->getHeaders() as $name => $value) {
               $responseHeaders[] = sprintf('%s: %s', $name, implode(', ', $value));
-	 }
+         }
 
          $response = new Response($request, $psr7Response->getBody()->getContents(), $psr7Response->getStatusCode(), $responseHeaders);
 
-	 if ($response->isError()) {
+         if ($response->isError()) {
               throw $response->getThrownException();
-	 }
+         }
 
-	 return $response;
+         return $response;
      }
 }
 

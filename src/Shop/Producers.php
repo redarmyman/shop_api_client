@@ -25,9 +25,9 @@ class Producers
         $producers = [];
         foreach ($response->getDecodedBody() as $producer) {
             $producers[] = Producer::fromArray($producer);
-	}
+        }
 
-	return $producers;
+        return $producers;
     }
 
     public function create(Producer $producer): void

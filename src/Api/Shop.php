@@ -37,8 +37,8 @@ class Shop
             throw new InvalidArgumentException('Required "http_client" key have to be instance of \Psr\Http\Client\ClientInterface');
         }
 
-	$this->basicAuth = new BasicAuth($config['basic_auth_user'], $config['basic_auth_pass']);
-	$this->client = new Client($config['http_client']);
+        $this->basicAuth = new BasicAuth($config['basic_auth_user'], $config['basic_auth_pass']);
+        $this->client = new Client($config['http_client']);
     }
 
     public function getBasicAuth(): BasicAuth
@@ -64,7 +64,7 @@ class Shop
     public function sendRequest(
         string $method,
         string $endpoint,
-	array $params = [],
+        array $params = [],
     ): Response {
         $request = $this->request($method, $endpoint, $params);
 

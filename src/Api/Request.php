@@ -132,7 +132,7 @@ class Request
          return [
              'Authorization' => 'Basic ' . \base64_encode(\sprintf('%s:%s', $this->basicAuth->user, $this->basicAuth->password)),
              'Content-Type' => 'application/json',
-	 ];
+         ];
      }
 }
 

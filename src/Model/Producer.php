@@ -20,23 +20,23 @@ class Producer
     {
         return [
             'id' => $this->id,
-	    'name' => $this->name,
-	    'site_url' => $this->siteUrl,
-	    'logo_filename' => $this->logoFilename,
-	    'ordering' => $this->ordering,
-	    'source_id' => $this->sourceId,
+            'name' => $this->name,
+            'site_url' => $this->siteUrl,
+            'logo_filename' => $this->logoFilename,
+            'ordering' => $this->ordering,
+            'source_id' => $this->sourceId,
         ];
     }
 
     public static function fromArray($array): self
     {
-	return new self(
+        return new self(
             $array['id'],
-	    $array['name'],
-	    $array['site_url'],
-	    $array['logo_filename'],
-	    (int) $array['ordering'],
-	    $array['source_id'],
+            $array['name'],
+            $array['site_url'],
+            $array['logo_filename'],
+            (int) $array['ordering'],
+            $array['source_id'],
         );
     } 
 }   

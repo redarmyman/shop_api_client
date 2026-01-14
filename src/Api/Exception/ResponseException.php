@@ -12,7 +12,7 @@ class ResponseException extends \Exception
 
     public function __construct(Response $response)
     {
-	$this->httpCode = $response->getHttpStatusCode();
+        $this->httpCode = $response->getHttpStatusCode();
 
         parent::__construct($response->getDecodedBody()['error']);
     }
