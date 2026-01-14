@@ -1,4 +1,34 @@
-# Example use:
+### Example project composer.json using this package:
+
+```
+{
+    "name": "ram/sklep",
+    "description": "Sklep",
+    "autoload": {
+        "psr-4": {
+            "Ram\\Sklep\\": "src/"
+        }
+    },
+    "require": {
+        "ram/sklep-api-client": "@dev",
+        "guzzlehttp/guzzle": "^7.10",
+        "php-http/guzzle7-adapter": "^1.1"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "sklep-api-client"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
+```
+
+### Example use:
 ```
 $shop = new \SAC\App\Api\Shop([
     'basic_auth_user' => '{user}',
